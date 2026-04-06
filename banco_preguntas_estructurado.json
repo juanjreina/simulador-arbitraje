@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "origen": "Banco del simulador",
+    "version": "auto_v1"
+  },
+  "preguntas": [
+    {
+      "id": 1,
+      "pregunta": "Según la normativa anti trampas (A.09), ¿Cuál de las siguientes respuestas son consideradas como trampas?",
+      "opciones": {
+        "a": "Dejarse perder",
+        "b": "Uso intencionado de dispositivo electrónico",
+        "c": "Identidad Falsa",
+        "d": "Partidas ficticias"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Todas",
+      "articulo": "Art. I.2",
+      "source": "A.09"
+    },
+    {
+      "id": 2,
+      "pregunta": "En un torneo de protección normal, válido para elo FIDE, ¿a quién se debe reportar una acusación de trampas?",
+      "opciones": {
+        "a": "A la FIDE",
+        "b": "Al Árbitro Principal",
+        "c": "A la Federación Autonómica",
+        "d": "A la Federación Nacional si no afecta a jugadores titulados"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "A la Federación Nacional si no afecta a jugadores titulados",
+      "articulo": "Art. II.5",
+      "source": "A.09"
+    },
+    {
+      "id": 3,
+      "pregunta": "Una Investigación puede dar comienzo por:",
+      "opciones": {
+        "a": "A iniciativa de la Comisión de Juego Limpio",
+        "b": "Un informe del árbitro principal del torneo",
+        "c": "Reclamación después del torneo",
+        "d": "Todas ellas son válidas"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "Todas ellas son válidas",
+      "articulo": "III.A.1 y 2",
+      "source": "A.09"
+    }
+  ]
+}
