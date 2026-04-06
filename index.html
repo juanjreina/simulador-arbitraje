@@ -183,9 +183,7 @@ fetch('banco_preguntas_estructurado.json')
 
     QUESTIONS = banco.map(q => ({
       id: q.id,
-      type: q.opciones && Object.keys(q.opciones).length
-  ? "mcq"
-  : (q.respuesta_correcta ? "tf" : "text"),
+      type: q.tipo || "mcq",
       question: q.pregunta,
       options: Object.entries(q.opciones || {}).map(([k, t]) => ({ key:k, text:t })),
       correct_key: q.respuesta_correcta,
