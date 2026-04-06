@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banco AN - Simulador PRO</title>
+<style>
+  :root {
+    --bg:#f6f7fb; --card:#ffffff; --text:#1f2430; --muted:#67728a;
+    --accent:#2457d6; --accent2:#eef3ff; --ok:#14833b; --bad:#c93030; --line:#dfe5f0;
+    --shadow:0 6px 24px rgba(15,23,42,.08);
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--text); background:var(--bg); }
+  .wrap { max-width:1100px; margin:0 auto; padding:24px 18px 48px; }
+  .hero { background:linear-gradient(135deg,#1f4fd1,#3b82f6); color:#fff; border-radius:20px; padding:24px; box-shadow:var(--shadow); }
+  .hero h1 { margin:0 0 8px; font-size:28px; }
+  .hero p { margin:0; line-height:1.5; opacity:.96; }
+  .tabs { display:flex; gap:10px; margin:18px 0; flex-wrap:wrap; }
+  .tabbtn { border:1px solid var(--line); background:#fff; color:var(--text); padding:11px 14px; border-radius:999px; cursor:pointer; font-weight:700; }
+  .tabbtn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .panel { display:none; }
+  .panel.active { display:block; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px; box-shadow:var(--shadow); margin-bottom:16px; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:16px; }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; box-shadow:var(--shadow); }
+  .stat .k { color:var(--muted); font-size:13px; margin-bottom:4px; }
+  .stat .v { font-size:24px; font-weight:700; }
+  .btnrow { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+  button, .ghostbtn {
+    border:1px solid var(--line); background:#fff; color:var(--text); padding:10px 14px;
+    border-radius:12px; cursor:pointer; font-weight:700;
+  }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  button.ok { background:var(--ok); color:#fff; border-color:var(--ok); }
+  button.bad { background:var(--bad); color:#fff; border-color:var(--bad); }
+  button:disabled { opacity:.6; cursor:not-allowed; }
+  .question-title { font-size:20px; font-weight:700; margin:0 0 10px; }
+  .meta { color:var(--muted); font-size:13px; margin-bottom:12px; }
+  .qtext { line-height:1.65; white-space:pre-wrap; }
+  .options { margin-top:14px; }
+  .option { display:block; border:1px solid var(--line); border-radius:14px; padding:12px 14px; margin:8px 0; background:#fff; }
+  .option input { margin-right:8px; }
+  .option.correct-outline { border-color:rgba(20,131,59,.45); background:#f3fcf5; }
+  .option.bad-outline { border-color:rgba(201,48,48,.35); background:#fff7f7; }
+  .result { margin-top:14px; font-weight:700; }
+  .result.ok { color:var(--ok); }
+  .result.bad { color:var(--bad); }
+  .solution { margin-top:12px; border:1px solid #dbe8dc; background:#f8fff8; border-radius:14px; padding:14px; white-space:pre-wrap; line-height:1.6; }
+  .article { color:#355f3d; font-weight:700; margin-bottom:8px; }
+  .small { color:var(--muted); font-size:13px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:800px) { .grid2 { grid-template-columns:1fr; } }
+  .history-table { width:100%; border-collapse:collapse; }
+  .history-table th, .history-table td { padding:10px 8px; border-bottom:1px solid var(--line); text-align:left; font-size:14px; }
+  .pill { display:inline-block; padding:4px 8px; border-radius:999px; background:var(--accent2); color:#2147a6; font-size:12px; font-weight:700; }
+  .exam-question { border-top:1px solid var(--line); padding-top:16px; margin-top:16px; }
+  .timer { font-size:28px; font-weight:700; }
+  .hidden { display:none !important; }
+  .review-card { border:1px solid var(--line); border-radius:14px; padding:14px; margin:12px 0; background:#fff; }
+  input[type="text"] {
+    width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:12px; font-size:15px;
+  }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <h1>Banco AN · Simulador PRO</h1>
+    <p>Construido a partir de <b>Banco del simulador</b>. El banco se ha reintegrado con preguntas, opciones, artículo y respuesta correcta. Incluye entrenamiento, examen de 70 preguntas en 80 minutos, cobertura progresiva del banco e histórico de notas.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="k">Preguntas cargadas</div><div class="v" id="totalQuestionsStat">0</div></div>
+    <div class="stat"><div class="k">Preguntas banco</div><div class="v" id="bankQuestionsStat">0</div></div>
+    <div class="stat"><div class="k">Modo examen</div><div class="v" id="examQuestionsStat">0</div></div>
+    <div class="stat"><div class="k">Cobertura de examen</div><div class="v" id="coverageStat">0%</div></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tabbtn active" data-tab="home">Inicio</button>
+    <button class="tabbtn" data-tab="training">Entrenamiento PRO</button>
+    <button class="tabbtn" data-tab="exam">Examen real</button>
+    <button class="tabbtn" data-tab="history">Histórico</button>
+  </div>
+
+  <section class="panel active" id="panel-home">
+    <div class="grid2">
+      <div class="card">
+        <div class="question-title">Entrenamiento PRO</div>
+        <div class="small">Práctica una pregunta cada vez. Puedes ir en modo normal o “solo falladas”. La corrección muestra artículo y texto completo de solución.</div>
+        <div class="btnrow">
+          <button class="primary" onclick="showTab('training'); nextTrainingQuestion(false);">Entrar en entrenamiento</button>
+          <button onclick="showTab('training'); state.training.onlyFails = true; nextTrainingQuestion(true);">Entrenar solo falladas</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="question-title">Examen real</div>
+        <div class="small">Genera siempre <b>70 preguntas</b> con <b>80 minutos</b>, sin respuestas visibles ni pistas. Se alimenta del banco limpio integrado.</div>
+        <div class="btnrow">
+          <button class="primary" onclick="showTab('exam'); prepareExam();">Iniciar examen</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="question-title">Cómo funciona la cobertura</div>
+      <div class="small">El modo examen guarda qué preguntas ya te han salido y prioriza las no vistas. Cuando se agotan, sigue mezclando pero dando preferencia a nuevas cuando existan. El orden de las respuestas se mezcla en cada examen.</div>
+      <div class="footer-note">Las preguntas de respuesta abierta se incluyen y se corrigen por coincidencia normalizada. La corrección muestra el artículo y la respuesta correcta almacenada en el banco integrado.</div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-training">
+    <div class="card">
+      <div class="btnrow">
+        <button class="primary" onclick="nextTrainingQuestion(false)">Siguiente aleatoria</button>
+        <button onclick="state.training.onlyFails = true; nextTrainingQuestion(true);">Solo falladas</button>
+        <button onclick="state.training.onlyFails = false; renderTrainingStatus();">Salir de falladas</button>
+        <button class="bad" onclick="resetTrainingProgress()">Reiniciar progreso entrenamiento</button>
+      </div>
+      <div class="footer-note" id="trainingStatus"></div>
+    </div>
+    <div id="trainingContainer"></div>
+  </section>
+
+  <section class="panel" id="panel-exam">
+    <div id="examIntro" class="card">
+      <div class="question-title">Examen final simulado</div>
+      <div class="small">Siempre genera <b>70 preguntas</b> y cuenta con <b>80 minutos</b>. Durante el examen no se muestran respuestas ni pistas. Al finalizar, obtendrás corrección completa, nota sobre 10, porcentaje, tiempo consumido y revisión de fallos.</div>
+      <div class="btnrow">
+        <button class="primary" onclick="prepareExam()">Generar nuevo examen</button>
+      </div>
+    </div>
+    <div id="examArea" class="hidden">
+      <div class="card">
+        <div class="grid2">
+          <div>
+            <div class="small">Modo examen</div>
+            <div class="timer" id="examTimer">80:00</div>
+          </div>
+          <div>
+            <div class="small">Preguntas</div>
+            <div class="timer" id="examCountLabel">0 / 70</div>
+          </div>
+        </div>
+        <div class="btnrow">
+          <button class="bad" onclick="finishExam(false)">Finalizar examen</button>
+        </div>
+      </div>
+      <div id="examQuestions"></div>
+    </div>
+    <div id="examResult" class="hidden"></div>
+  </section>
+
+  <section class="panel" id="panel-history">
+    <div class="card">
+      <div class="question-title">Histórico de notas</div>
+      <div id="historySummary" class="small"></div>
+      <div class="btnrow">
+        <button class="bad" onclick="clearHistory()">Borrar histórico</button>
+      </div>
+      <div style="overflow:auto; margin-top:12px;">
+        <table class="history-table">
+          <thead>
+            <tr><th>Fecha</th><th>Nota</th><th>Aciertos</th><th>Fallos</th><th>%</th><th>Tiempo</th></tr>
+          </thead>
+          <tbody id="historyTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+let QUESTIONS = [];
+
+fetch('banco_preguntas_estructurado.json')
+  .then(res => res.json())
+  .then(data => {
+
+    // si tu JSON tiene { meta, preguntas }
+    const banco = data.preguntas;
+
+    QUESTIONS = banco.map(q => ({
+      id: q.id,
+      type: q.opciones && Object.keys(q.opciones).length
+  ? "mcq"
+  : (q.respuesta_correcta ? "tf" : "text"),
+      question: q.pregunta,
+      options: Object.entries(q.opciones || {}).map(([k, t]) => ({ key:k, text:t })),
+      correct_key: q.respuesta_correcta,
+      correct_text: q.explicacion,
+      article: q.articulo,
+      source: q.source,
+      exam_eligible: true
+    }));
+
+    console.log("Banco cargado:", QUESTIONS.length);
+
+    // 🔥 MUY IMPORTANTE
+    computeStats();
+    renderTrainingStatus();
+    renderHistory();
+    nextTrainingQuestion(false);
+
+  })
+  .catch(err => {
+    console.error("Error cargando JSON:", err);
+  });
+
+const STORAGE_KEYS = {
+  examSeen: 'an_exam_seen_v1',
+  history: 'an_exam_history_v1',
+  trainingFails: 'an_training_fails_v1',
+  trainingSeen: 'an_training_seen_v1',
+  trainingStats: 'an_training_stats_v2'
+};
+const state = {
+  training: { current:null, onlyFails:false, checked:false },
+  exam: { questions:[], started:false, timer:null, remaining:4800, startTs:null, submitted:false }
+};
+
+function getStore(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+function setStore(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+function normalizeText(s) {
+  return (s || '').toString().toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/[¿?¡!]/g, '')
+    .trim();
+}
+function esc(s) {
+  return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i=a.length-1; i>0; i--) {
+    const j = Math.floor(Math.random() * (i+1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function formatTime(sec) {
+  const m = Math.floor(sec/60);
+  const s = sec % 60;
+  return String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+}
+function showTab(name) {
+  document.querySelectorAll('.tabbtn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tab === name);
+  });
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  if (name === 'history') renderHistory();
+}
+document.querySelectorAll('.tabbtn').forEach(btn => btn.addEventListener('click', () => showTab(btn.dataset.tab)));
+
+function questionFingerprint(q) {
+  let base = normalizeText(q.question) + '||' + q.type + '||' + normalizeText(q.correct_text);
+  if (q.options) {
+    base += '||' + q.options.map(o => normalizeText(o.text)).join('||');
+  }
+  return base;
+}
+function computeStats() {
+  document.getElementById('totalQuestionsStat').textContent = QUESTIONS.length;
+  document.getElementById('bankQuestionsStat').textContent = QUESTIONS.length;
+  document.getElementById('examQuestionsStat').textContent = 70;
+  updateCoverage();
+}
+function updateCoverage() {
+  const seen = new Set(getStore(STORAGE_KEYS.examSeen, []));
+  const eligible = QUESTIONS.filter(q => q.exam_eligible).length;
+  const pct = eligible ? Math.round((seen.size / eligible) * 100) : 0;
+  document.getElementById('coverageStat').textContent = pct + '%';
+}
+
+function renderTrainingStatus() {
+  const fails = getStore(STORAGE_KEYS.trainingFails, []);
+  const seen = getStore(STORAGE_KEYS.trainingSeen, []);
+  const stats = getStore(STORAGE_KEYS.trainingStats, { correct:0, wrong:0 });
+  const total = stats.correct + stats.wrong;
+  const pct = total ? Math.round((stats.correct / total) * 100) : 0;
+  const mode = state.training.onlyFails ? 'Modo actual: solo falladas.' : 'Modo actual: aleatorio normal.';
+  document.getElementById('trainingStatus').textContent =
+    mode + ' Vistas: ' + seen.length +
+    ' · Falladas guardadas: ' + fails.length +
+    ' · Aciertos: ' + stats.correct +
+    ' · Fallos: ' + stats.wrong +
+    ' · Precisión: ' + pct + '%.';
+}
+
+function pickTrainingQuestion(onlyFails=false) {
+  const fails = getStore(STORAGE_KEYS.trainingFails, []);
+  const seen = new Set(getStore(STORAGE_KEYS.trainingSeen, []));
+  let pool = QUESTIONS.slice();
+  if (onlyFails && fails.length) {
+    pool = QUESTIONS.filter(q => fails.includes(q.id));
+  } else {
+    const unseen = QUESTIONS.filter(q => !seen.has(q.id));
+    pool = unseen.length ? unseen : QUESTIONS.slice();
+  }
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+function renderOptionInput(name, opt, qid) {
+  return `<label class="option"><input type="radio" name="${name}" value="${esc(opt.key)}"> <b>${opt.key})</b> ${esc(opt.text)}</label>`;
+}
+
+function renderTrainingQuestion(q) {
+  state.training.current = structuredClone(q);
+  state.training.checked = false;
+  const container = document.getElementById('trainingContainer');
+  let optionsHtml = '';
+  if (q.type === 'mcq' || q.type === 'tf') {
+    const mixed = shuffle(q.options).map(o => ({...o}));
+    state.training.current.shuffledOptions = mixed;
+    optionsHtml = mixed.map(opt => renderOptionInput('training_option', opt, q.id)).join('');
+  } else {
+    optionsHtml = `<input type="text" id="trainingTextAnswer" placeholder="Escribe aquí tu respuesta">`;
+  }
+  container.innerHTML = `
+    <div class="card">
+      <div class="question-title">Pregunta de entrenamiento</div>
+      <div class="meta"><span class="pill">${esc(q.source)}</span> <span class="pill">${q.type.toUpperCase()}</span></div>
+      <div class="qtext">${esc(q.question)}</div>
+      <div class="options">${optionsHtml}</div>
+      <div class="btnrow">
+        <button class="primary" id="trainingCheckBtn" onclick="checkTraining()">Comprobar</button>
+        <button id="trainingNextBtn" onclick="nextTrainingQuestion(state.training.onlyFails)" disabled>Siguiente</button>
+      </div>
+      <div id="trainingResult"></div>
+    </div>`;
+  const seen = new Set(getStore(STORAGE_KEYS.trainingSeen, []));
+  seen.add(q.id);
+  setStore(STORAGE_KEYS.trainingSeen, [...seen]);
+  renderTrainingStatus();
+}
+
+function nextTrainingQuestion(onlyFails=false) {
+  state.training.onlyFails = !!onlyFails;
+  const q = pickTrainingQuestion(onlyFails);
+  if (!q) {
+    document.getElementById('trainingContainer').innerHTML = '<div class="card">No hay preguntas disponibles.</div>';
+    return;
+  }
+  renderTrainingQuestion(q);
+}
+
+function checkTraining() {
+  const q = state.training.current;
+  if (!q || state.training.checked) return;
+  let ok = false;
+  let userText = '';
+  let selectedKey = '';
+  if (q.type === 'mcq' || q.type === 'tf') {
+    const sel = document.querySelector('input[name="training_option"]:checked');
+    if (!sel) {
+      document.getElementById('trainingResult').innerHTML = '<div class="result bad">⚠️ Selecciona una respuesta.</div>';
+      return;
+    }
+    selectedKey = sel.value;
+    ok = selectedKey === q.correct_key;
+  } else {
+    userText = document.getElementById('trainingTextAnswer').value || '';
+    ok = normalizeText(userText) === normalizeText(q.correct_text);
+  }
+  state.training.checked = true;
+  let fails = new Set(getStore(STORAGE_KEYS.trainingFails, []));
+  const stats = getStore(STORAGE_KEYS.trainingStats, { correct:0, wrong:0 });
+  if (ok) {
+    fails.delete(q.id);
+    stats.correct += 1;
+  } else {
+    fails.add(q.id);
+    stats.wrong += 1;
+  }
+  setStore(STORAGE_KEYS.trainingFails, [...fails]);
+  setStore(STORAGE_KEYS.trainingStats, stats);
+  renderTrainingStatus();
+
+  const resultCls = ok ? 'ok' : 'bad';
+  const msg = ok ? '✔ Correcto' : '❌ Incorrecto';
+  if (q.type === 'mcq' || q.type === 'tf') {
+    document.querySelectorAll('.option').forEach(label => {
+      const inp = label.querySelector('input');
+      if (inp.value === q.correct_key) label.classList.add('correct-outline');
+      if (!ok && inp.checked && inp.value !== q.correct_key) label.classList.add('bad-outline');
+      inp.disabled = true;
+    });
+  } else {
+    const input = document.getElementById('trainingTextAnswer');
+    if (input) input.disabled = true;
+  }
+  const letterLine = (q.type === 'mcq' || q.type === 'tf') && q.correct_key
+    ? `<div><b>Letra correcta:</b> ${esc(q.correct_key.toUpperCase())}</div>`
+    : '';
+  document.getElementById('trainingResult').innerHTML = `
+    <div class="result ${resultCls}">${msg}</div>
+    <div class="solution">
+      ${q.article ? `<div class="article">${esc(q.article)}</div>` : ''}
+      ${letterLine}
+      <div><b>La respuesta correcta es:</b></div>
+      <div>${esc(q.correct_text)}</div>
+    </div>`;
+  const checkBtn = document.getElementById('trainingCheckBtn');
+  const nextBtn = document.getElementById('trainingNextBtn');
+  if (checkBtn) checkBtn.disabled = true;
+  if (nextBtn) nextBtn.disabled = false;
+}
+
+function resetTrainingProgress() {
+  if (!confirm('Se borrará el progreso de entrenamiento (vistas, falladas y estadísticas).')) return;
+  setStore(STORAGE_KEYS.trainingFails, []);
+  setStore(STORAGE_KEYS.trainingSeen, []);
+  setStore(STORAGE_KEYS.trainingStats, { correct:0, wrong:0 });
+  renderTrainingStatus();
+  nextTrainingQuestion(false);
+}
+
+function buildExamQuestion(q, index) {
+  const copy = structuredClone(q);
+  if (copy.type === 'mcq' || copy.type === 'tf') copy.options = shuffle(copy.options);
+  return copy;
+}
+
+function selectExamQuestions() {
+  const eligible = QUESTIONS.filter(q => q.exam_eligible);
+  const seen = new Set(getStore(STORAGE_KEYS.examSeen, []));
+  const unseen = eligible.filter(q => !seen.has(q.id));
+  let picked = [];
+  if (unseen.length >= 70) {
+    picked = shuffle(unseen).slice(0, 70);
+  } else {
+    picked = unseen.slice();
+    const rest = eligible.filter(q => !picked.some(x => x.id === q.id));
+    picked = picked.concat(shuffle(rest).slice(0, 70 - picked.length));
+  }
+  return shuffle(picked).map(buildExamQuestion);
+}
+
+function prepareExam() {
+  if (state.exam.timer) clearInterval(state.exam.timer);
+  state.exam.questions = selectExamQuestions();
+  state.exam.started = true;
+  state.exam.remaining = 80 * 60;
+  state.exam.startTs = Date.now();
+  state.exam.submitted = false;
+  document.getElementById('examIntro').classList.add('hidden');
+  document.getElementById('examResult').classList.add('hidden');
+  document.getElementById('examArea').classList.remove('hidden');
+  renderExamQuestions();
+  tickExamClock();
+  state.exam.timer = setInterval(() => {
+    state.exam.remaining -= 1;
+    tickExamClock();
+    if (state.exam.remaining <= 0) {
+      finishExam(true);
+    }
+  }, 1000);
+}
+
+function tickExamClock() {
+  document.getElementById('examTimer').textContent = formatTime(Math.max(0, state.exam.remaining));
+  document.getElementById('examCountLabel').textContent = state.exam.questions.length + ' / 70';
+}
+
+function renderExamQuestions() {
+  const wrap = document.getElementById('examQuestions');
+  wrap.innerHTML = state.exam.questions.map((q, idx) => {
+    const qid = `exam_q_${idx}`;
+    let optionsHtml = '';
+    if (q.type === 'mcq' || q.type === 'tf') {
+      optionsHtml = q.options.map(opt => `
+        <label class="option">
+          <input type="radio" name="${qid}" value="${esc(opt.key)}">
+          <b>${esc(opt.key)})</b> ${esc(opt.text)}
+        </label>`).join('');
+    } else {
+      optionsHtml = `<input type="text" id="${qid}_text" placeholder="Escribe aquí tu respuesta">`;
+    }
+    return `
+      <div class="card exam-question" data-exam-index="${idx}">
+        <div class="question-title">Pregunta ${idx+1}</div>
+        <div class="meta"><span class="pill">${esc(q.source)}</span> <span class="pill">${q.type.toUpperCase()}</span></div>
+        <div class="qtext">${esc(q.question)}</div>
+        <div class="options">${optionsHtml}</div>
+      </div>`;
+  }).join('');
+}
+
+function collectExamAnswers() {
+  return state.exam.questions.map((q, idx) => {
+    const qid = `exam_q_${idx}`;
+    if (q.type === 'mcq' || q.type === 'tf') {
+      const sel = document.querySelector(`input[name="${qid}"]:checked`);
+      return sel ? sel.value : '';
+    }
+    return document.getElementById(`${qid}_text`).value || '';
+  });
+}
+
+function finishExam(auto=false) {
+  if (!state.exam.started || state.exam.submitted) return;
+  state.exam.submitted = true;
+  clearInterval(state.exam.timer);
+  const answers = collectExamAnswers();
+  const seen = new Set(getStore(STORAGE_KEYS.examSeen, []));
+  state.exam.questions.forEach(q => seen.add(q.id));
+  setStore(STORAGE_KEYS.examSeen, [...seen]);
+  updateCoverage();
+
+  let correct = 0;
+  let wrong = [];
+  let blank = 0;
+  state.exam.questions.forEach((q, idx) => {
+    const user = answers[idx];
+    let ok = false;
+    if (!user) blank++;
+    if (q.type === 'mcq' || q.type === 'tf') {
+      ok = user === q.correct_key;
+    } else {
+      ok = normalizeText(user) === normalizeText(q.correct_text);
+    }
+    if (ok) correct++;
+    else wrong.push({q, user});
+  });
+  const total = state.exam.questions.length;
+  const incorrect = total - correct;
+  const nota = ((correct / total) * 10).toFixed(2);
+  const pct = ((correct / total) * 100).toFixed(2);
+  const elapsed = 80*60 - state.exam.remaining;
+
+  const history = getStore(STORAGE_KEYS.history, []);
+  history.unshift({
+    ts: new Date().toISOString(),
+    nota: Number(nota),
+    correct, incorrect, pct: Number(pct),
+    elapsed
+  });
+  setStore(STORAGE_KEYS.history, history.slice(0, 100));
+
+  document.getElementById('examArea').classList.add('hidden');
+  const result = document.getElementById('examResult');
+  result.classList.remove('hidden');
+  result.innerHTML = `
+    <div class="card">
+      <div class="question-title">Resultado final${auto ? ' · tiempo agotado' : ''}</div>
+      <div class="stats">
+        <div class="stat"><div class="k">Nota</div><div class="v">${nota}/10</div></div>
+        <div class="stat"><div class="k">Aciertos</div><div class="v">${correct}</div></div>
+        <div class="stat"><div class="k">Fallos</div><div class="v">${incorrect}</div></div>
+        <div class="stat"><div class="k">Porcentaje</div><div class="v">${pct}%</div></div>
+        <div class="stat"><div class="k">En blanco</div><div class="v">${blank}</div></div>
+        <div class="stat"><div class="k">Tiempo consumido</div><div class="v">${formatTime(elapsed)}</div></div>
+      </div>
+      <div class="btnrow">
+        <button class="primary" onclick="prepareExam()">Hacer otro examen</button>
+        <button onclick="showWrongReview()">Ver falladas</button>
+        <button onclick="showTab('history'); renderHistory();">Ver histórico</button>
+      </div>
+      <div id="wrongReviewContainer" class="hidden"></div>
+    </div>`;
+  renderHistory();
+}
+
+function showWrongReview() {
+  const answers = collectExamAnswers();
+  const wrap = document.getElementById('wrongReviewContainer');
+  const blocks = [];
+  state.exam.questions.forEach((q, idx) => {
+    const user = answers[idx];
+    let ok = false;
+    if (q.type === 'mcq' || q.type === 'tf') ok = user === q.correct_key;
+    else ok = normalizeText(user) === normalizeText(q.correct_text);
+    if (ok) return;
+    let userDisplay = user || 'Sin responder';
+    if ((q.type === 'mcq' || q.type === 'tf') && user) {
+      const found = q.options.find(o => o.key === user);
+      userDisplay = user.toUpperCase() + ') ' + (found ? found.text : '');
+    }
+    const correctLetter = (q.type === 'mcq' || q.type === 'tf') ? `<div><b>Letra correcta:</b> ${esc(q.correct_key.toUpperCase())}</div>` : '';
+    blocks.push(`
+      <div class="review-card">
+        <div class="question-title" style="font-size:18px;">Pregunta ${idx+1}</div>
+        <div class="qtext">${esc(q.question)}</div>
+        <div class="result bad" style="margin-top:8px;">Tu respuesta: ${esc(userDisplay)}</div>
+        <div class="solution">
+          ${q.article ? `<div class="article">${esc(q.article)}</div>` : ''}
+          ${correctLetter}
+          <div><b>La respuesta correcta es:</b></div>
+          <div>${esc(q.correct_text)}</div>
+        </div>
+      </div>`);
+  });
+  wrap.classList.remove('hidden');
+  wrap.innerHTML = blocks.length ? blocks.join('') : '<div class="card">No hay falladas.</div>';
+}
+
+function renderHistory() {
+  const history = getStore(STORAGE_KEYS.history, []);
+  const body = document.getElementById('historyTableBody');
+  const summary = document.getElementById('historySummary');
+  if (!history.length) {
+    summary.textContent = 'Todavía no hay exámenes guardados.';
+    body.innerHTML = '';
+    return;
+  }
+  const best = Math.max(...history.map(h => h.nota)).toFixed(2);
+  const avg = (history.reduce((a,b) => a+b.nota, 0) / history.length).toFixed(2);
+  const last = history[0].nota.toFixed(2);
+  summary.textContent = `Intentos guardados: ${history.length} · Mejor nota: ${best} · Media: ${avg} · Última nota: ${last}`;
+  body.innerHTML = history.map(h => {
+    const d = new Date(h.ts);
+    const when = d.toLocaleString('es-ES');
+    return `<tr>
+      <td>${esc(when)}</td>
+      <td><b>${h.nota.toFixed(2)}/10</b></td>
+      <td>${h.correct}</td>
+      <td>${h.incorrect}</td>
+      <td>${h.pct.toFixed(2)}%</td>
+      <td>${formatTime(h.elapsed)}</td>
+    </tr>`;
+  }).join('');
+}
+
+function clearHistory() {
+  if (!confirm('Se borrará el histórico de exámenes.')) return;
+  setStore(STORAGE_KEYS.history, []);
+  renderHistory();
+}
+
+</script>
+</body>
+</html>
