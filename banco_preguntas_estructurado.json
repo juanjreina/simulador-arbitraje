@@ -1,491 +1,58 @@
-{
-  "meta": {
-    "origen": "pdf limpio",
-    "version": "v2"
+[
+  {
+    "id": 1,
+    "type": "mcq",
+    "question": "Según la normativa anti trampas (A.09), ¿Cuál de las siguientes respuestas son consideradas como trampas?",
+    "options": [
+      {"key": "a", "text": "a, c y d"},
+      {"key": "b", "text": "a y b"},
+      {"key": "c", "text": "Todas"},
+      {"key": "d", "text": "a y c"}
+    ],
+    "correct_key": "c",
+    "correct_text": "Todas",
+    "article": "art. I.2",
+    "source": "PDF",
+    "exam_eligible": true
   },
-  "preguntas": [
-    {
-      "id": 1,
-      "tipo": "test",
-      "pregunta": "¿Cuál de las siguientes no está considerada como trampas según la FIDE?",
-      "opciones": {
-        "a": "Intento de hacer trampas",
-        "b": "Manipulación de resultados",
-        "c": "Hablar durante la partida con otro jugador",
-        "d": "Amaño de partidas"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 2,
-      "tipo": "test",
-      "pregunta": "Las personas sujetas a la jurisdicción de la Comisión de Juego Limpio de la FIDE son:",
-      "opciones": {
-        "a": "Todas son correctas",
-        "b": "1, 2 y 3",
-        "c": "1 y 2",
-        "d": "1 y 3"
-      },
-      "respuesta_correcta": "a"
-    },
-    {
-      "id": 3,
-      "tipo": "test",
-      "pregunta": "Una investigación puede dar comienzo por (marcar la respuesta errónea):",
-      "opciones": {
-        "a": "Un informe del árbitro principal del torneo",
-        "b": "La Comisión de Juego Limpio de la FIDE",
-        "c": "Un espectador",
-        "d": "Una reclamación después del torneo"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 4,
-      "tipo": "test",
-      "pregunta": "Relativo a las reglas de procedimiento, marcar la correcta:",
-      "opciones": {
-        "a": "El reclamante y la persona acusada solo pueden ser representados",
-        "b": "Los costes correrán a cuenta de la FIDE",
-        "c": "El periodo de prescripción es de ocho años",
-        "d": "El idioma de trabajo es cualquier idioma oficial"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 5,
-      "tipo": "test",
-      "pregunta": "¿Cuántos niveles de protección tiene la FIDE?",
-      "opciones": {
-        "a": "1",
-        "b": "2",
-        "c": "4",
-        "d": "3"
-      },
-      "respuesta_correcta": "d"
-    },
-    {
-      "id": 6,
-      "tipo": "test",
-      "pregunta": "Sobre el procedimiento de investigación en materia de trampas:",
-      "opciones": {
-        "a": "El grupo de investigación debe actuar en tiempo razonable",
-        "b": "La FPL puede rechazar reclamaciones infundadas",
-        "c": "Todas son correctas",
-        "d": "La FPL puede investigar preliminarmente"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 7,
-      "tipo": "test",
-      "pregunta": "Equipo técnico recomendado por FIDE para prevención de trampas (marca incorrecta):",
-      "opciones": {
-        "a": "Fechas del torneo",
-        "b": "Un mínimo de 3 árbitros anti trampas",
-        "c": "Detectores de metales",
-        "d": "Dispositivos de apantallamiento"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 8,
-      "tipo": "test",
-      "pregunta": "Norma WGM con dos rivales sin elo:",
-      "opciones": {
-        "a": "2100 y rating real",
-        "b": "2000 y rating real",
-        "c": "2000 y 1400",
-        "d": "2000 ambos"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 9,
-      "tipo": "test",
-      "pregunta": "Reglamento de títulos FIDE, marcar correcta:",
-      "opciones": {
-        "a": "Referencias normativas",
-        "b": "Exceso de requisitos",
-        "c": "Emparejamientos predeterminados",
-        "d": "Todas correctas"
-      },
-      "respuesta_correcta": "d"
-    },
-    {
-      "id": 10,
-      "tipo": "test",
-      "pregunta": "En liga sin banderas, normas:",
-      "opciones": {
-        "a": "Sí",
-        "b": "No",
-        "c": "Solo nacionales",
-        "d": "Nunca"
-      },
-      "respuesta_correcta": "c"
-    },
-
-    {
-      "id": 11,
-      "tipo": "test",
-      "pregunta": "Umbral mínimo WIM:",
-      "opciones": {
-        "a": "1850",
-        "b": "1800",
-        "c": "1750",
-        "d": "1900"
-      },
-      "respuesta_correcta": "a"
-    },
-    {
-      "id": 12,
-      "tipo": "test",
-      "pregunta": "Dos rivales sin elo en norma GM:",
-      "opciones": {
-        "a": "2200 y 1400",
-        "b": "2100 y 1000",
-        "c": "2200 y 1800",
-        "d": "2000 y 1400"
-      },
-      "respuesta_correcta": "a"
-    },
-    {
-      "id": 13,
-      "tipo": "test",
-      "pregunta": "Norma de 8 partidas con incomparecencia:",
-      "opciones": {
-        "a": "Cuenta como 9",
-        "b": "Requiere validación",
-        "c": "26 partidas bastan",
-        "d": "No válida"
-      },
-      "respuesta_correcta": "a"
-    },
-    {
-      "id": 14,
-      "tipo": "test",
-      "pregunta": "Tiempo mínimo norma:",
-      "opciones": {
-        "a": "100 min",
-        "b": "120 min",
-        "c": "90 min",
-        "d": "110 min"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 15,
-      "tipo": "test",
-      "pregunta": "Elo provisional 2200:",
-      "opciones": {
-        "a": "Solicita CM",
-        "b": "Solicita CM provisional",
-        "c": "Solo al final",
-        "d": "No válido"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 16,
-      "tipo": "test",
-      "pregunta": "Árbitro auxiliar juega torneo:",
-      "opciones": {
-        "a": "Sí",
-        "b": "No",
-        "c": "Solo parcial",
-        "d": "Depende"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 17,
-      "tipo": "test",
-      "pregunta": "Norma con última por incomparecencia:",
-      "opciones": {
-        "a": "No válida",
-        "b": "Válida 9 partidas",
-        "c": "Válida 8",
-        "d": "Ninguna"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 18,
-      "tipo": "test",
-      "pregunta": "Norma GM en ronda 10 de 13:",
-      "opciones": {
-        "a": "Ya título",
-        "b": "Debe cumplir reglas RR",
-        "c": "Siempre válida",
-        "d": "27 partidas necesarias"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 19,
-      "tipo": "test",
-      "pregunta": "Formato no válido para títulos:",
-      "opciones": {
-        "a": "Playoff",
-        "b": "Todos válidos",
-        "c": "Scheveningen",
-        "d": "Suizo"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 20,
-      "tipo": "test",
-      "pregunta": "Norma GM usada para IM:",
-      "opciones": {
-        "a": "Sí ambas",
-        "b": "Solo IM",
-        "c": "Solo GM",
-        "d": "No"
-      },
-      "respuesta_correcta": "a"
-    },
-
-    {
-      "id": 21,
-      "tipo": "test",
-      "pregunta": "Excepciones federaciones:",
-      "opciones": {
-        "a": "Equipos",
-        "b": "Femenino",
-        "c": "Todas",
-        "d": "Ninguna"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 22,
-      "tipo": "test",
-      "pregunta": "Elevar valoración oponentes IM:",
-      "opciones": {
-        "a": "Caso 1",
-        "b": "Caso 2",
-        "c": "Caso 3",
-        "d": "Todas"
-      },
-      "respuesta_correcta": "d"
-    },
-    {
-      "id": 23,
-      "tipo": "test",
-      "pregunta": "Rating mínimo GM directo:",
-      "opciones": {
-        "a": "2500",
-        "b": "2550",
-        "c": "2300",
-        "d": "2600"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 24,
-      "tipo": "test",
-      "pregunta": "Fórmula Ru:",
-      "opciones": {
-        "a": "1780",
-        "b": "Ra+dp",
-        "c": "Ra",
-        "d": "Ra+15"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 25,
-      "tipo": "test",
-      "pregunta": "Diferencia rating:",
-      "opciones": {
-        "a": "200 y 420",
-        "b": "200+dp",
-        "c": "200 y 400",
-        "d": "200+dp"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 26,
-      "tipo": "test",
-      "pregunta": "Tiempo mínimo torneo:",
-      "opciones": {
-        "a": "90",
-        "b": "90+30",
-        "c": "todos",
-        "d": "60"
-      },
-      "respuesta_correcta": "a"
-    },
-    {
-      "id": 27,
-      "tipo": "test",
-      "pregunta": "Cambio reglamento:",
-      "opciones": {
-        "a": "Sí",
-        "b": "No",
-        "c": "Depende",
-        "d": "Todos"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 28,
-      "tipo": "test",
-      "pregunta": "Registro torneo:",
-      "opciones": {
-        "a": "3 días",
-        "b": "7 días",
-        "c": "flexible",
-        "d": "no aplica"
-      },
-      "respuesta_correcta": "a"
-    },
-    {
-      "id": 29,
-      "tipo": "test",
-      "pregunta": "Tiempo mínimo elo:",
-      "opciones": {
-        "a": "100",
-        "b": "120",
-        "c": "90",
-        "d": "60"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 30,
-      "tipo": "test",
-      "pregunta": "Frecuencia informes:",
-      "opciones": {
-        "a": "30 días",
-        "b": "90 días",
-        "c": "todas",
-        "d": "ninguna"
-      },
-      "respuesta_correcta": "c"
-    },
-
-    {
-      "id": 31,
-      "tipo": "test",
-      "pregunta": "Partida evaluada mínimo:",
-      "opciones": {
-        "a": "3 jugadas",
-        "b": "2",
-        "c": "1",
-        "d": "10"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 32,
-      "tipo": "test",
-      "pregunta": "Publicación rating:",
-      "opciones": {
-        "a": "4 partidas",
-        "b": "5 partidas",
-        "c": "6",
-        "d": "ninguna"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 33,
-      "tipo": "test",
-      "pregunta": "Inactividad:",
-      "opciones": {
-        "a": "1,2,3",
-        "b": "1 y 2",
-        "c": "2 y 3",
-        "d": "1 y 4"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 34,
-      "tipo": "test",
-      "pregunta": "Coeficiente K:",
-      "opciones": {
-        "a": "1,3,4",
-        "b": "1,2,3",
-        "c": "todas",
-        "d": "1,2"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 35,
-      "tipo": "test",
-      "pregunta": "Valores K:",
-      "opciones": {
-        "a": "40,15,10",
-        "b": "40,10",
-        "c": "40,20,15,10",
-        "d": "40,20,10"
-      },
-      "respuesta_correcta": "d"
-    },
-    {
-      "id": 36,
-      "tipo": "test",
-      "pregunta": "Lista rating:",
-      "opciones": {
-        "a": "ambas",
-        "b": "registro",
-        "c": "agosto",
-        "d": "septiembre"
-      },
-      "respuesta_correcta": "c"
-    },
-    {
-      "id": 37,
-      "tipo": "test",
-      "pregunta": "Fórmula Ru:",
-      "opciones": {
-        "a": "todas",
-        "b": "Ra+dp",
-        "c": "Ra+20",
-        "d": "Ra"
-      },
-      "respuesta_correcta": "b"
-    },
-    {
-      "id": 38,
-      "tipo": "test",
-      "pregunta": "Jugador no valorado:",
-      "opciones": {
-        "a": "1877",
-        "b": "2093",
-        "c": "1590",
-        "d": "1850"
-      },
-      "respuesta_correcta": "a"
-    },
-    {
-      "id": 39,
-      "tipo": "test",
-      "pregunta": "Jugador inactivo:",
-      "opciones": {
-        "a": "art",
-        "b": "definición",
-        "c": "alternativa",
-        "d": "definición correcta"
-      },
-      "respuesta_correcta": "d"
-    },
-    {
-      "id": 40,
-      "tipo": "test",
-      "pregunta": "Cálculo Ru:",
-      "opciones": {
-        "a": "8.2.3",
-        "b": "Ra+dp*K",
-        "c": "Ra",
-        "d": "Ra+dp"
-      },
-      "respuesta_correcta": "d"
-    }
-  ]
-}
+  {
+    "id": 2,
+    "type": "mcq",
+    "question": "En un torneo de protección normal, valido para elo FIDE, un jugador hace una acusación sobre otro jugador de estar haciendo presuntas trampas. ¿A quién se debe reportar el caso?",
+    "options": [
+      {"key": "a", "text": "A la FIDE"},
+      {"key": "b", "text": "Al Árbitro Principal"},
+      {"key": "c", "text": "A la Federación Autonómica"},
+      {"key": "d", "text": "A la Federación Nacional si no afecta a jugadores titulados"}
+    ],
+    "correct_key": "d",
+    "correct_text": "A la Federación Nacional si no afecta a jugadores titulados",
+    "article": "art. II.5",
+    "source": "PDF",
+    "exam_eligible": true
+  },
+  {
+    "id": 12,
+    "type": "tf",
+    "question": "Tener un teléfono apagado en la sala de juego es una violación del juego limpio",
+    "options": [
+      {"key": "a", "text": "Verdadero"},
+      {"key": "b", "text": "Falso"}
+    ],
+    "correct_key": "a",
+    "correct_text": "Verdadero",
+    "article": "I.4.a",
+    "source": "PDF",
+    "exam_eligible": true
+  },
+  {
+    "id": 42,
+    "type": "text",
+    "question": "¿Cuál es la perfomance mínima para obtener una norma de GM?",
+    "options": [],
+    "correct_text": "2600",
+    "article": "1.4.8",
+    "source": "PDF",
+    "exam_eligible": true
+  }
+]
