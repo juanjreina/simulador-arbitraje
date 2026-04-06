@@ -1,17 +1,18 @@
 {
   "meta": {
-    "origen": "Banco del simulador",
-    "version": "auto_v1"
+    "origen": "Banco generado",
+    "version": "v1"
   },
   "preguntas": [
     {
       "id": 1,
-      "pregunta": "Según la normativa anti trampas (A.09), ¿Cuál de las siguientes respuestas son consideradas como trampas?",
+      "tipo": "mcq",
+      "pregunta": "Según la normativa anti trampas (A.09), ¿Cuál de las siguientes respuestas son consideradas como trampas?\n\na) Dejarse perder\nb) Uso intencionado de dispositivo electrónico\nc) Identidad falsa\nd) Partidas ficticias",
       "opciones": {
-        "a": "Dejarse perder",
-        "b": "Uso intencionado de dispositivo electrónico",
-        "c": "Identidad Falsa",
-        "d": "Partidas ficticias"
+        "a": "a, c y d",
+        "b": "a y b",
+        "c": "Todas",
+        "d": "a y c"
       },
       "respuesta_correcta": "c",
       "explicacion": "Todas",
@@ -20,31 +21,730 @@
     },
     {
       "id": 2,
-      "pregunta": "En un torneo de protección normal, válido para elo FIDE, ¿a quién se debe reportar una acusación de trampas?",
+      "tipo": "mcq",
+      "pregunta": "Tener un teléfono apagado en la sala de juego es una violación del juego limpio",
       "opciones": {
-        "a": "A la FIDE",
-        "b": "Al Árbitro Principal",
-        "c": "A la Federación Autonómica",
-        "d": "A la Federación Nacional si no afecta a jugadores titulados"
+        "a": "Verdadero",
+        "b": "Falso"
       },
-      "respuesta_correcta": "d",
-      "explicacion": "A la Federación Nacional si no afecta a jugadores titulados",
-      "articulo": "Art. II.5",
+      "respuesta_correcta": "a",
+      "explicacion": "Verdadero",
+      "articulo": "I.4.a",
       "source": "A.09"
     },
     {
       "id": 3,
-      "pregunta": "Una Investigación puede dar comienzo por:",
+      "tipo": "text",
+      "pregunta": "¿Cuál es la performance mínima para obtener una norma de GM?",
+      "respuesta_correcta": "2600",
+      "explicacion": "2600",
+      "articulo": "1.4.8",
+      "source": "B.01"
+    },
+    {
+      "id": 4,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 4",
       "opciones": {
-        "a": "A iniciativa de la Comisión de Juego Limpio",
-        "b": "Un informe del árbitro principal del torneo",
-        "c": "Reclamación después del torneo",
-        "d": "Todas ellas son válidas"
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "a",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 5,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 5",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 6,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 6",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "a",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 7,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 7",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "a",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 8,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 8",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "a",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 9,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 9",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "b",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 10,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 10",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 11,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 11",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
       },
       "respuesta_correcta": "d",
-      "explicacion": "Todas ellas son válidas",
-      "articulo": "III.A.1 y 2",
-      "source": "A.09"
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 12,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 12",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "b",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 13,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 13",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "a",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 14,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 14",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 15,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 15",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 16,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 16",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "a",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 17,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 17",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 18,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 18",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 19,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 19",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 20,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 20",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 21,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 21",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "b",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 22,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 22",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "a",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 23,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 23",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 24,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 24",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 25,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 25",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 26,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 26",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "a",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 27,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 27",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 28,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 28",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 29,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 29",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "b",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 30,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 30",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 31,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 31",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "b",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 32,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 32",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 33,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 33",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 34,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 34",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 35,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 35",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 36,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 36",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "b",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 37,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 37",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 38,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 38",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "b",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 39,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 39",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 40,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 40",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 41,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 41",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 42,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 42",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 43,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 43",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "b",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 44,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 44",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 45,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 45",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "b",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 46,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 46",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 47,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 47",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "a",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 48,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 48",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "d",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 49,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 49",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
+    },
+    {
+      "id": 50,
+      "tipo": "mcq",
+      "pregunta": "Pregunta simulada 50",
+      "opciones": {
+        "a": "Opción A",
+        "b": "Opción B",
+        "c": "Opción C",
+        "d": "Opción D"
+      },
+      "respuesta_correcta": "c",
+      "explicacion": "Ejemplo",
+      "articulo": "Test",
+      "source": "SIM"
     }
   ]
 }
