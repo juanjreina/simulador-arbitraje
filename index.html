@@ -166,13 +166,15 @@ body {
 }
 
 button {
-  padding:11px 16px;
-  border-radius:12px;
-  border:none;
-  background:var(--card-soft);
-  color:var(--text-strong);
-  cursor:pointer;
-  font-weight:600;
+  padding: 16px 28px;        /* antes 11px 16px → esto es la clave */
+  border-radius: 12px;
+  border: none;
+  background: var(--card-soft);
+  color: var(--text-strong);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;           /* añade esto */
+  min-height: 48px;          /* da consistencia vertical */
 }
 
 button.primary {
