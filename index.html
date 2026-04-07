@@ -21811,8 +21811,6 @@ function renderTrainingQuestion(q) {
   }
   container.innerHTML = `
     <div class="card">
-      <div class="question-title">Pregunta de entrenamiento</div>
-      <div class="meta"><span class="pill">${esc(q.source)}</span> <span class="pill">${q.type.toUpperCase()}</span></div>
       <div class="qtext">${esc(q.question)}</div>
       <div class="options">${optionsHtml}</div>
       <div class="btnrow">
